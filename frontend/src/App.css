@@ -1,0 +1,78 @@
+.sidebar{
+    color: #fff;
+    width: 100vh;
+    font-size: large;
+    align-items: center;
+    
+    
+}
+
+.menu-bar{
+    height: 50vh;
+    
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 1rem;
+
+}
+
+.pangsakto{
+    width: 179vh;
+    background-color: #fff;
+    height: 100%;
+}
+
+.Design{
+    display: flex;
+    height: 100vh;
+    background-image: url(./assets/background2.jpg);
+    background-size: cover;
+}
+
+.Loginform{
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:#e7e7ee;
+
+}
+
+.Loginform h1{
+    font-size: 56px;
+    font-weight: bolder;
+    
+}
+
+.Loginform h2{
+    font-size: 120px;
+    font-weight: bolder;
+    Color: white;
+
+   
+    
+}
+
+.Receivingform{
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    color:black;
+}
+
+.Receivingform h1{
+    font-size: 40px;
+    font-weight: bolder;
+    color:rgb(6, 1, 1);
+}

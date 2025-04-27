@@ -1,0 +1,122 @@
+
+LOGISTIC 1 API DOCUMENTATION
+
+-------------------------------------------------------------------------------------------
+CORE 1
+- To request a raw material
+
+API: https://backend-logistic1.jjm-manufacturing.com/api/rawmaterial/request
+METHOD: POST
+BODY: {
+    requestedBy: "This is String, Drey",
+    department: "This is String, Core 1",
+    material: [
+        {
+            materialName: "This is String, Essential Oil",
+            quantity: "This is Number, 500",
+            unit: "This is String, Pcs"
+        }
+    ],
+    notes: "This is String, Lagay mo concern mo bakit bibili",
+    priority: "This is String and need enum need ko yung exact name base sa model ko ['High', 'Medium', 'ow'], Medium",
+    approvalId: "This is String, 67bf50dded6a9f7c7df1755555"
+}
+
+----------------------------------------------------------
+NOTE: The model for your budget request should have 
+
+const rawmaterialSchema = mongoose.Schema({
+  rawmaterialNumber: { type: String },
+  requestDate: {
+    type: Date,
+    default: Date.now,
+  },
+  requestStatus: {
+    type: String,
+    enum: ["Pending", "Approved", "Rejected"],
+    default: "Pending",
+  },
+  requestedBy: {
+    type: String,
+    required: true,
+  },
+  approvedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  approvalDate: {
+    type: Date,
+  },
+  department: { type: String, required: true },
+  approvalId: { type: String },
+  material: [
+    {
+      materialName: String,
+      materialId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Material",
+      },
+      quantity: Number,
+      unit: String,
+    },
+  ],
+  priority: {
+    type: String,
+    enum: ["High", "Medium", "Low"],
+    default: "Medium",
+  },
+  notes: {
+    type: String,
+    trim: true,
+  },
+});
+
+----------------------------------------------------------
+CORE 1
+
+-To track the APPROVE status of your request
+
+Create a function to your controller that updates the requestStatus and approvedBy kung sino man yung nag approve 
+create API for Logistic to update the requestStatus and approvedBy kung sino yung nag approve 
+
+BODY: const updateData =
+ {
+    approvedBy: userId,
+    requestStatus: status,
+  }
+----------------------------------------------------------
+CORE 1
+
+-To track the REJECT status of your request
+
+Create a function to your controller that updates the requestStatus and approvedBy kung sino man yung nag approve 
+create API for Logistic to update the requestStatus and approvedBy kung sino yung nag approve 
+
+BODY: const updateData =
+ {
+    approvedBy: userId,
+    requestStatus: status,
+  }
+
+
+
+<============================================================> 
+FINANCE
+-To track the status of your request
+
+API: https://backend-logistic1.jjm-manufacturing.com/api/purchase-order/updateStatusFinance
+METHOD: POST
+BODY: {  
+    approvalStatus: status,
+    approvalId,
+    comment,
+}
+
+<============================================================> 
+
+LOGISTIC 2
+
+<---------PENDING-------->
+
+
+<============================================================>
