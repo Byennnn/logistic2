@@ -1,17 +1,19 @@
-import { login } from '../controllers/authController.js'
-
-import express from 'express'
-
-
-
+import express from 'express';
+import { 
+  initiateLogin, 
+  verifyLoginOTP, 
+  initiateSignup, 
+  verifySignupOTP 
+} from '../controllers/authController.js';
 
 const router = express.Router();
-router.post('/login', login)
 
+// Login flow
+router.post('/initiate-login', initiateLogin);
+router.post('/verify-login-otp', verifyLoginOTP);
 
-
-// router.use(express.json())
-
-
+// Signup flow
+router.post('/initiate-signup', initiateSignup);
+router.post('/verify-signup-otp', verifySignupOTP);
 
 export default router;
